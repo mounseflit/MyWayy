@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Way&nbsp;طريقي</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="Mounseflit">
+  <link rel="shortcut icon" type="x-icon" href="assets/img/logo.png">
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(0, 0, 0);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 20px;
+            background-color: rgba(66, 66, 66, 0.712);
+            color: #bdbdbd;
+            box-shadow: 0 0px 90px rgba(67, 3, 87, 0.658);
+            border-radius: 5px;
+        }
+
+        .cont {
+            max-width: 800px;
+            margin: 0px auto;
+            padding: 20px;
+            background-color: rgba(66, 66, 66, 0.712);
+            color: #bdbdbd;
+
+            border-radius: 5px;
+        }
+
+        h1 {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            color: #ffffff;
+            text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+            margin-bottom: 20px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: row;
+            margin: 0px;
+            align-self: center;
+        }
+
+        #goal {
+            width: 340px;
+            min-width: 100px;
+            margin-right: 10px;
+            max-width: 800px;
+            margin: 0px auto;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: rgb(230, 201, 255);
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select {
+            max-width: 800px;
+            padding: 10px;
+            border: 2px solid rgb(127, 0, 245);
+            border-radius: 5px;
+            background-color: rgb(0, 0, 0);
+            color: #bdbdbd;
+            
+        }
+
+        input[type="text"],
+        input[type="date"],
+        select:focus {
+         outline: none;
+        }
+
+        input[type="radio"] {
+            margin-right: 5px;
+        }
+
+        button {
+            align-self: center;
+            background-color: rgb(127, 0, 245);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px;
+            cursor: pointer;
+        }
+
+        #roadmap-output {
+            margin-top: 20px;
+        }
+
+        h2 {
+            margin-bottom: 10px;
+            color: rgb(127, 0, 245);
+            text-align: center;
+        }
+
+        #generated-roadmap {
+            padding: 10px;
+            border: 1px solid #888888;
+            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: #bdbdbd;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            input[type="text"],
+            input[type="date"],
+            select {
+                padding: 5px;
+            }
+
+            button {
+                padding: 8px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <br><br><br><br>
+    <div class="container">
+        <h1><span
+                style="color: rgb(127, 0, 245);text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);margin-bottom: 20px;">ROAD </span>MAPPER<br><SPAn style="color: black;">DEMO</SPAn></h1>
+        <br><br>
+        <form id="roadmap-form">
+            <div class="box">
+                <input type="text" id="goal" placeholder="My Goal is..." required>
+                <button id="toggle-button" style="background-color: rgba(0, 0, 0, 0); margin-left: 10px;"><svg
+                        xmlns="http://www.w3.org/2000/svg" height="1.5em"
+                        viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                            d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z" />
+                    </svg></button>
+            </div>
+
+
+            <div class="cont" id="additional-inputs" style="display: none;">
+                <br>
+
+                <label for="resource-type">Resource Type :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="radio" id="free" name="resource-type" value="free" checked>
+                <label for="free" style="color: black;">Free</label>
+                <input type="radio" id="paid" name="resource-type" value="paid">
+                <label for="paid" style="color: black;">Paid</label>
+                <input type="radio" id="none" name="resource-type" value="none">
+                <label for="none" style="color: black;">None</label><br><br>
+
+                <label for="level">Level :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select id="level">
+                    <option value="beginner">Beginner</option>
+                    <option value="normal" selected>Normal</option>
+                    <option value="pro">Pro</option>
+                    <option value="expert">Expert</option>
+                </select><br><br>
+
+                <label for="start-date">Start Date :&nbsp;&nbsp;&nbsp;</label>
+                <input type="date" id="start-date" required><br><br>
+
+                <label for="end-date">End Date :&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="date" id="end-date" required><br>
+
+
+
+
+            </div>
+            <br><br>
+            <button type="button" style="width: 400px; padding: 8px;" id="generate-roadmap">Generate Roadmap</button>
+            <br><br>
+        </form>
+
+        <div id="roadmap-output" style="display: none;">
+            <br><br>
+            <h2>My Roadmap:</h2>
+            <div id="generated-roadmap"></div>
+        </div>
+    </div>
+    <a href="https://mounseflit.surge.sh" style="text-align: center;">
+        <h5>@Made By Morocco Ai Crafter</h5>
+    </a>
+    <script>
+        const toggleButton = document.getElementById('toggle-button');
+        const additionalInputs = document.getElementById('additional-inputs');
+        const roadmapoutput = document.getElementById('roadmap-output');
+
+        toggleButton.addEventListener('click', function () {
+
+            additionalInputs.style.display = additionalInputs.style.display === 'none' ? 'block' : 'none';
+            if (additionalInputs.style.display === 'block') {
+                toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-87-87-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 167c9.4-9.4 24.6-9.4 33.9 0L377 271z"/></svg>';
+            } else {
+                toggleButton.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" height="1.5em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 0a256 256 0 1 0 0 512A256 256 0 1 0 256 0zM135 241c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l87 87 87-87c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9L273 345c-9.4 9.4-24.6 9.4-33.9 0L135 241z"/></svg>';
+            }
+        });
+
+
+
+        document.getElementById("generate-roadmap").addEventListener("click", async function () {
+            const goal = document.getElementById("goal").value;
+            let prompt = '';
+            roadmapoutput.innerHTML = '<br><br><h2>My Roadmap:</h2><div id="generated-roadmap"></div>';
+            roadmapoutput.style.display = 'none';
+            if (!goal) {
+                alert('Please enter a goal.');
+                roadmapoutput.style.display = 'none';
+                return;
+            }
+            roadmapoutput.style.display = roadmapoutput.style.display === 'none' ? 'block' : 'block';
+
+            const startDate = new Date(document.getElementById("start-date").value);
+            const endDate = new Date(document.getElementById("end-date").value);
+            const today = new Date();
+
+            if (startDate <= today || endDate <= today) {
+                alert('Dates must be in the future.');
+                return;
+            }
+
+            if (startDate >= endDate) {
+                alert('Start date must be before end date.');
+                return;
+            }
+
+            const level = document.getElementById("level").value;
+            const resourceType = document.querySelector('input[name="resource-type"]:checked').value;
+
+            prompt = "TASK : you are specialized in time managing and i want you to make me a step by step roadmap that treat the subject of ' " + goal + " ' that is my goal. i want this roadmap to be on a form of check points and steps of each task to reach the final goal in a max of five steps.i want the speed of productivity and the quality of containte to be in a " + level + " way. ";
+
+            if (resourceType != 'none') {
+                prompt = prompt + " also can you add some " + resourceType + " valid resources links from the web in every step if possible to help me learn and reach and complete the steps ";
+            }
+
+            if (startDate != 'Invalid Date' || endDate != 'Invalid Date') {
+                prompt = prompt + " also add some time management and integrate it in the roadmap like a timeline and deadlines. ";
+            }
+
+            if (startDate != 'Invalid Date') {
+                prompt = prompt + " i want the timeline to start from " + startDate;
+            }
+            if (endDate != 'Invalid Date') {
+                prompt = prompt + " i want the timeline to end at " + endDate;
+            }
+            if (resourceType === 'none') {
+                prompt = prompt + `
+            EXAMPLE:
+            //DONT MAKE INTRO AND DONT SAY ANYTHING//
+            
+Roadmap:
+
+STEP 1 : BLABLABLA
+
+OBJECTIF: XXXXXXXX.
+TASKS: XXXXXXXXX.
+BLA: XXXXXXXX.
+
+Time Management: Dedicate XXXXX to complete this stage.
+
+
+STEP X : BLABLABLA
+
+OBJECTIF: XXXXXXXX.
+TASKS: XXXXXXXXX.
+BLA: XXXXXXXX.
+
+Time Management: Dedicate XXXXX to complete this stage.
+
+`;
+            }
+
+            prompt = prompt + `
+            EXAMPLE:
+            //DONT MAKE INTRO AND DONT SAY ANYTHING//
+            
+Roadmap:
+
+STEP 1 : BLABLABLA
+
+OBJECTIF: XXXXXXXX.
+TASKS: XXXXXXXXX.
+BLA: XXXXXXXX.
+
+Resources:
+[Resource Link 1]
+[Resource Link 2]
+[Resource Link 3]
+...
+
+Time Management: Dedicate XXXXX to complete this stage.
+
+
+STEP X : BLABLABLA
+
+OBJECTIF: XXXXXXXX.
+TASKS: XXXXXXXXX.
+BLA: XXXXXXXX.
+
+Resources:
+[Resource Link 1]
+[Resource Link 2]
+[Resource Link 3]
+...
+
+Time Management: Dedicate XXXXX to complete this stage.
+`;
+
+ 
+const apiKey = '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';
+const apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
+const maxTokens = 600;
+
+fetch(apiUrl, {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${apiKey}`,
+  },
+  body: JSON.stringify({
+    prompt: prompt,
+    max_tokens: maxTokens,
+  }),
+})
+  .then(response => response.json())
+  .then(data => {
+    const generatedText = data.choices[0].text;
+    console.log(generatedText);
+    roadmapoutput.innerHTML = '<br><br><h2>My Roadmap:</h2><div id="generated-roadmap"><h3>' + generatedText + '</h3></div>';
+  })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+    
+        });
+    </script>
+</body>
+
+</html>
