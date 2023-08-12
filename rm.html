@@ -329,9 +329,9 @@ Time Management: Dedicate XXXXX to complete this stage.
 `;
 
  
-const apiKey = 'xxxxxx';
+const apiKey = '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';
 const apiUrl = 'https://api.openai.com/v1/engines/text-davinci-003/completions';
-const maxTokens = 600;
+const maxTokens = 1000;
 
 fetch(apiUrl, {
   method: 'POST',
@@ -349,7 +349,33 @@ fetch(apiUrl, {
     const generatedText = data.choices[0].text;
     console.log(generatedText);
     roadmapoutput.innerHTML = '<br><br><h2>My Roadmap:</h2><div id="generated-roadmap"><h3>' + generatedText + '</h3></div>';
-  })
+  
+
+        const roadmapText = generatedText;
+
+        const stepsRegex = /Step (\d+): (.*?)\s+(Objective:.*?)\s+/g;
+        let match;
+        const roadmapDiv = document.getElementById('generated-roadmap');
+        roadmapDiv.innerHTML += '<h2>Roadmap</h2>';
+
+        while ((match = stepsRegex.exec(roadmapText)) !== null) {
+            const stepNumber = match[1];
+            const stepTitle = match[2];
+            const stepObjective = match[3];
+
+            const stepHTML = `
+                <div>
+                    <h2>Step ${stepNumber}: ${stepTitle}</h2>
+                    <p>${stepObjective}</p>
+                </div>
+            `;
+
+            roadmapDiv.innerHTML += stepHTML;
+        }
+
+
+
+})
   .catch(error => {
     console.error('Error:', error);
   });
