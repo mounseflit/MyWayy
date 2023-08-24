@@ -61,6 +61,7 @@ $( document ).ready(function() {
     updateContent(curPos, nextPos, lastItem);
 
   });
+  
 
   // swipe support for touch devices
   var targetElement = document.getElementById('viewport'),
@@ -141,13 +142,12 @@ $( document ).ready(function() {
       $('.main-content').children().eq(curPos).children().addClass('section--prev');
     }
 
-    if (nextPos !== 0 && nextPos !== lastItem) {
+    if (nextPos !== 0 && nextPos !== lastItem ) {
       $('.header--cta').addClass('is-active');
     }
     else {
       $('.header--cta').removeClass('is-active');
     }
-
   }
 
   function outerNav() {
@@ -277,3 +277,9 @@ $( document ).ready(function() {
   transitionLabels();
 
 });
+
+
+
+
+
+

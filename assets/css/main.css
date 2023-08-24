@@ -394,7 +394,6 @@ body {
     margin: 0 0 0 10px;
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase
 }
 
 .device-notification--message {
@@ -463,8 +462,8 @@ body {
     transition: transform .4s ease-in-out;
     transition: transform .4s ease-in-out, -webkit-transform .4s ease-in-out
 }
-.intro--options
-.section--prev {
+
+.intro--options .section--prev {
     -webkit-transform: translateY(45px);
     transform: translateY(45px);
     -webkit-transition: -webkit-transform .4s ease-in-out;
@@ -511,7 +510,6 @@ body {
     margin: 0 0 0 10px;
     font-size: 16px;
     font-weight: 700;
-    text-transform: uppercase
 }
 
 .header--nav-toggle {
@@ -569,8 +567,8 @@ body {
     font-weight: 700;
     text-transform: uppercase;
     border-radius: 10px;
-    border-color: rgb(127, 0, 245);
-    color: rgb(127, 0, 245);
+    border-color: rgba(128, 0, 255, 0.541);
+    color: rgba(128, 0, 255, 0.541);
     background-color: #000000;
     opacity: 0;
     visibility: hidden;
@@ -584,7 +582,7 @@ body {
 
 .header--cta:hover {
     color: #fff;
-    background-color: rgb(127, 0, 245);
+    background-color: rgba(128, 0, 255, 0.541);
     border-radius: 10px;
     border-color: #00000000;
 }
@@ -593,8 +591,8 @@ body {
     opacity: 1;
     visibility: visible;
     border-radius: 10px;
-    border-color: rgb(127, 0, 245);
-    color: rgb(127, 0, 245);
+    border-color: rgba(128, 0, 255, 0.726);
+    color: rgba(128, 0, 255, 0.712);
     background-color: #000000;
     -webkit-transition: opacity .4s ease-in-out .4s;
     transition: opacity .4s ease-in-out .4s
@@ -604,7 +602,7 @@ body {
     border-radius: 10px;
     border-color: #00000000;
     color: #fff;
-    background-color: rgb(127, 0, 245);
+    background-color: rgba(128, 0, 255, 0.541);
     -webkit-transition: opacity .4s ease-in-out .4s;
     transition: opacity .4s ease-in-out .4s
 }
@@ -806,6 +804,12 @@ body {
     right: -12px
 }
 
+.intro--banner .flag {
+    position: absolute;
+    bottom: 21px;
+    right: -12px
+}
+
 .intro--options {
     display: -webkit-box;
     display: -webkit-flex;
@@ -817,28 +821,60 @@ body {
     justify-content: space-between;
     margin: 0;
     padding: 0;
-    list-style: none
+    list-style: none;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.intro--options .gp {
+    max-width: 250px;
+    text-decoration: none;
+    color: #0c0c0c;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.intro--options .gh {
+    font-size: x-large;
+    max-width: 250px;
+    text-decoration: none;
+    color: #f0f0f0;
+    transition: font-size 0.3s, color 0.3s;
 }
 
 .intro--options>a {
     max-width: 250px;
     text-decoration: none;
-    color: #5f5e5e;
-    -webkit-transition: color .2s ease-in-out;
-    transition: color .2s ease-in-out
+    color: #f0f0f0;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.intro--options>a:hover .gp {
+    color: rgb(255, 255, 255);
+    transition: font-size 0.3s, color 0.3s;
+    text-shadow: 0 0px 50px rgb(117, 46, 165);
+    
+}
+
+.intro--options>a:hover .gh {
+    color: rgb(127, 0, 245);
+    font-size: medium;
+    font-weight: bolder;
+    transition: font-size 0.3s, color 0.3s;
 }
 
 .intro--options>a:hover {
     color: rgb(127, 0, 245);
+    transition: font-size 0.3s, color 0.3s;
 }
 
 .intro--options h3 {
     font-size: 16px;
-    text-transform: uppercase
+    text-transform: uppercase;
+    transition: font-size 0.3s, color 0.3s;
 }
 
 .intro--options p {
-    margin-bottom: 0
+    margin-bottom: 0;
+    transition: font-size 0.3s, color 0.3s;
 }
 
 @media (max-width: 900px) {
@@ -852,6 +888,10 @@ body {
 
     .intro--banner img {
         width: 430px
+    }
+
+    .intro--banner .flag {
+        display: none
     }
 
     .intro--options>a {
@@ -874,6 +914,9 @@ body {
 
     .intro--banner img {
         width: 330px
+    }
+    .intro--banner .flag {
+        display: none
     }
 
     .intro--options {
@@ -901,6 +944,9 @@ body {
     }
 
     .intro--banner img {
+        display: none
+    }
+    .intro--banner .flag {
         display: none
     }
 }
@@ -1233,8 +1279,21 @@ body {
     background-color: transparent
 }
 
+.about--banner .minf{
+    text-decoration: underline;
+}
+
+
+.about--banner .minf:hover{
+    
+    font-size: medium;
+}
+
 .about--banner a:hover svg {
-    left: 10px
+    left: 10px;
+}
+.about--banner a:hover {
+    color: rgb(127, 0, 245)
 }
 
 .about--banner a svg {
@@ -1451,6 +1510,10 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: 700
+}
+
+.contact--lockup .modal--information a:hover {
+    text-decoration: underline;
 }
 
 .contact--lockup .modal--information p {
@@ -1930,17 +1993,279 @@ body {
     background-color: rgb(127, 0, 245);
     color: rgb(255, 255, 255);
     text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
-    text-decoration: none; 
+    text-decoration: none;
     border-radius: 10px;
     transition: background-color 0.3s, color 0.3s;
 }
 
 .demo-button:hover {
-    
+
     border: 5px solid rgb(127, 0, 245);
     font-size: larger;
     /*background-color: #000000;
     color: rgb(127, 0, 245);*/
     border-radius: 10px;
-    text-decoration: none; 
+    text-decoration: none;
+}
+
+
+.try {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    max-width: 1000px;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin: -20px 20px;
+    padding: auto;
+    list-style: none;
+    gap: 100px;
+    text-align: center;
+    align-items: center;
+}
+
+.contaner {
+    min-width: 50px;
+    width: 300px;
+    margin: 60px auto;
+    padding: 90px;
+    background-color: rgba(55, 55, 55, 1);
+    color: #ffffff;
+    box-shadow: 0 0px 90px rgba(67, 3, 87, 0.658);
+    border-radius: 5px;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+
+
+
+@media (max-width: 1500px) {
+    .try {
+        gap: 50px;
+    }
+}
+
+
+
+@media (max-width: 950px) {
+    .try {
+        display: flex;
+        flex-direction: column;
+        /* Stack containers vertically on small screens */
+        justify-content: center;
+        /* Center align vertically */
+        align-items: center;
+        /* Center align horizontally */
+        margin: auto;
+        list-style: none;
+        gap: 20px;
+        /* Reduce gap between containers */
+        text-align: center;
+    }
+
+    .contaner {
+        min-width: 50px;
+        width: 80%;
+        /* Make containers expand to full width on small screens */
+        max-width: 400px;
+        /* Limit maximum width */
+        margin: 20px auto;
+        /* Adjust vertical margin for spacing */
+        padding: 40px;
+        /* Reduce padding for smaller containers */
+        background-color:  rgba(55, 55, 55, 1);
+        color: #ffffff;
+        box-shadow: 0 0px 50px rgba(67, 3, 87, 0.658);
+        border-radius: 5px;
+        transition: font-size 0.3s, color 0.3s;
+    }
+
+
+}
+
+
+.contaner>h1>span{
+    color: rgb(127, 0, 245);
+    text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+}
+
+.try>.contaner {
+    color: #fff;
+    
+}
+
+.contaner:hover{
+    font-size: larger;
+     color: rgb(255, 255, 255);
+     background-color: rgba(66, 66, 66, 1);
+}
+
+
+
+  .wrapper {
+    height: 100%;
+    width: 100%;
+    background-color: #00000000;
+  }
+  
+  .wrapper div {
+    height: 30px;
+    width: 30px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 50px;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    animation: 4s linear infinite;
+  }
+  div .dot {
+    height: 5px;
+    width: 5px;
+    border-radius: 50px;
+    background: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    top: 20%;
+    right: 20%;
+  }
+  .wrapper div:nth-child(1) {
+    top: 20%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+  }
+  .wrapper div:nth-child(2) {
+    top: 60%;
+    left: 80%;
+    animation: animate 10s linear infinite;
+  }
+  .wrapper div:nth-child(3) {
+    top: 40%;
+    left: 40%;
+    animation: animate 3s linear infinite;
+  }
+  .wrapper div:nth-child(4) {
+    top: 66%;
+    left: 30%;
+    animation: animate 7s linear infinite;
+  }
+  .wrapper div:nth-child(5) {
+    top: 90%;
+    left: 10%;
+    animation: animate 9s linear infinite;
+  }
+  .wrapper div:nth-child(6) {
+    top: 30%;
+    left: 60%;
+    animation: animate 5s linear infinite;
+  }
+  .wrapper div:nth-child(7) {
+    top: 70%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+  }
+  .wrapper div:nth-child(8) {
+    top: 75%;
+    left: 60%;
+    animation: animate 10s linear infinite;
+  }
+  .wrapper div:nth-child(9) {
+    top: 50%;
+    left: 50%;
+    animation: animate 6s linear infinite;
+  }
+  .wrapper div:nth-child(10) {
+    top: 45%;
+    left: 20%;
+    animation: animate 10s linear infinite;
+  }
+  .wrapper div:nth-child(11) {
+    top: 10%;
+    left: 90%;
+    animation: animate 9s linear infinite;
+  }
+  .wrapper div:nth-child(12) {
+    top: 20%;
+    left: 70%;
+    animation: animate 7s linear infinite;
+  }
+  .wrapper div:nth-child(13) {
+    top: 20%;
+    left: 20%;
+    animation: animate 8s linear infinite;
+  }
+  .wrapper div:nth-child(14) {
+    top: 60%;
+    left: 5%;
+    animation: animate 6s linear infinite;
+  }
+  .wrapper div:nth-child(15) {
+    top: 90%;
+    left: 80%;
+    animation: animate 9s linear infinite;
+  }
+  @keyframes animate {
+    0% {
+      transform: scale(0) translateY(0) rotate(70deg);
+    }
+    100% {
+      transform: scale(1.3) translateY(-100px) rotate(360deg);
+    }
+  }
+
+
+  #back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    transform: rotate(180deg); 
+    text-decoration: solid;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+    border-radius: 60%;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    transition: transform 0.3s, padding 0.3s; /* Added transition effect */
+}
+
+#back-button:hover {
+    transform: rotate(180deg) scale(1.3); /* Apply rotation and scale on hover */
+}
+
+
+
+
+.hh>h3 {
+    font-size: x-large;
+    color: rgb(255, 255, 255);
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.pp {
+    color: #0c0c0c;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+
+.hh:hover  h3 {
+    font-size: smaller;
+    color: blueviolet;
+    text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+    transition: font-size 0.3s, color 0.3s;
+}
+
+
+.pp {
+    color: #0c0c0c;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.hh:hover .pp {
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0px 50px rgb(117, 46, 165);
+    transition: font-size 0.3s, color 0.3s;
 }
