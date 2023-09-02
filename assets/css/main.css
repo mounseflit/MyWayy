@@ -2088,7 +2088,7 @@ body {
 
 
 .contaner>h1>span{
-    color: rgb(127, 0, 245);
+    color: #7f00f5;
     text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
 }
 
@@ -2100,7 +2100,7 @@ body {
 .contaner:hover{
     font-size: larger;
      color: rgb(255, 255, 255);
-     background-color: rgba(66, 66, 66, 1);
+     background-color: #424242;
 }
 
 
@@ -2268,4 +2268,110 @@ body {
     color: rgb(255, 255, 255);
     text-shadow: 0 0px 50px rgb(117, 46, 165);
     transition: font-size 0.3s, color 0.3s;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid #7f00f5;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    position: relative;
+    top: 50%; 
+    left: 45%;
+    display: none;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+
+.passt {
+    font-size: x-large;
+    color: rgb(255, 255, 255);
+    background-color: #0c0c0c;
+    border-color: #ffffff;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    height: fit-content;
+    width: fit-content;
+    transition: font-size 0.3s, color 0.3s;
+}
+  
+
+.passt>h3 {
+    font-size: xx-large;
+    color: rgb(255, 255, 255);
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.passp {
+    color: #ffffff;
+    background-color: #7f00f5;
+    border-color: #ffffff;
+    border-radius: 20px;
+    align-items: center;
+    text-align: center;
+    align-content: center;
+    height: fit-content;
+    width: fit-content;
+    transition: font-size 0.3s, color 0.3s;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+
+.passt:hover h3 {
+    font-size: smaller;
+    color: rgb(129, 21, 172);
+    text-shadow: 0 0px 50px rgba(54, 0, 90, 0.767);
+    transition: font-size 0.3s, color 0.3s;
+}
+
+
+.passp {
+    visibility: collapse;
+    visibility: hidden;
+    color: rgb(255, 255, 255);
+    text-shadow: 0 0px 50px rgb(117, 46, 165);
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.passt:hover .passp {
+    visibility: visible;
+    transition: font-size 0.3s, color 0.3s;
+}
+
+.btpass {
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 0 20px;
+    margin: 0px 0px 0px 80px;
+    align-self: center;
+    line-height: 30px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: large;
+    text-transform: uppercase;
+    border-radius: 10px;
+    border-color: rgba(0, 0, 0, 0.541);
+    color: #fff;
+    background-color: rgba(39, 1, 70, 0.541);
+}
+
+
+.btpass:focus {
+    outline: none
+}
+
+.btpass:hover {
+    
+    border-radius: 10px;
+    border-color: #000000;
+    color: rgba(128, 0, 255, 0.541);
+    background-color: #000000;
 }
